@@ -1,0 +1,256 @@
+@use "sass:math";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap');
+
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+* {
+    font-family: Nunito, sans-serif;
+}
+
+.text-blk {
+    padding: 0;
+    line-height: 20px;
+    color: white;
+    font-size: 14px;
+    margin: 0 0 10px 0;
+
+    &.heading {
+        font-size: 40px;
+        line-height: 64px;
+        font-weight: 900;
+        color: #00B2EB;
+    }
+
+    &.btn {
+        color: #00B2EB;
+        background-color: #fff;
+        box-shadow: rgba(160, 121, 0, 0.2) 0px 12px 35px;
+        border-radius: 100px;
+        padding: 20px 50px;
+        cursor: pointer;
+    }
+
+    &.subHeading {
+        font-size: 14px;
+        line-height: 25px;
+    }
+}
+
+.responsive-container-block {
+    min-height: 75px;
+    height: fit-content;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: flex-start;
+
+    &.bigContainer {
+        background: linear-gradient(180deg, #111132, #0c0c1d);
+        padding: 10px 20px;
+        margin: 0;
+    }
+
+    &.Container {
+        max-width: 1320px;
+        align-items: center;
+        justify-content: center;
+        margin: 80px auto;
+        padding: 10px 0;
+    }
+
+    &.leftSide {
+        width: auto;
+        align-items: flex-start;
+        padding: 10px 0;
+        flex-direction: column;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    &.rightSide {
+        width: 675px;
+        position: relative;
+        padding: 0;
+        display: flex;
+        height: 700px;
+        min-height: auto;
+    }
+}
+
+.responsive-container-block {
+
+    .number1img,
+    .number2img,
+    .number3img,
+    .number4vid,
+    .number5img,
+    .number6img,
+    .number7img {
+        top: -10px;
+        left: -5px;
+        display: block;
+        z-index: 99;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: scale(1.2); // Adjust the scale value as needed
+        }
+    }
+}
+
+.number1img,
+.number2img,
+.number3img,
+.number4vid,
+.number5img,
+.number6img,
+.number7img {
+    position: absolute;
+}
+
+.number1img {
+    margin: 39% 80% 29% 0;
+    height: 32%;
+    width: 20%;
+}
+
+.number2img {
+    margin: 19% 42% 42% 23%;
+    width: 35%;
+    height: 39%;
+}
+
+.number3img {
+    width: 13%;
+    height: 20%;
+    margin: 62% 64% 30% 23%;
+}
+
+.number4vid {
+    width: 34%;
+    height: 33%;
+    margin: 62% 27% 0 39%;
+}
+
+.number5img {
+    width: 13%;
+    height: 21%;
+    margin: 38% 27% 41% 60%;
+}
+
+.number6img {
+    margin: 5% 30% 90% 62%;
+    width: 40%;
+    height: 30%;
+}
+
+.number7img {
+    width: 20%;
+    margin: 40% 0 18% 75%;
+    height: 42%;
+}
+
+@media (max-width: 1024px) {
+    .responsive-container-block.Container {
+        flex-direction: column-reverse;
+    }
+
+    .text-blk.heading {
+        text-align: center;
+        max-width: 370px;
+    }
+
+    .text-blk.subHeading {
+        text-align: center;
+    }
+
+    .responsive-container-block.leftSide {
+        align-items: center;
+        max-width: 480px;
+    }
+
+    .responsive-container-block.rightSide {
+        margin: 0 auto 70px auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .responsive-container-block.rightSide {
+        width: 450px;
+        height: 450px;
+    }
+
+    .responsive-container-block.leftSide {
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .number1img,
+    .number2img,
+    .number3img,
+    .number5img,
+    .number6img,
+    .number7img {
+        display: none;
+    }
+
+    .responsive-container-block.rightSide {
+        width: 100%;
+        height: 250px;
+        margin-bottom: 100px;
+    }
+
+    .number4vid {
+        position: static;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .text-blk.heading {
+        font-size: 25px;
+        line-height: 40px;
+        max-width: 370px;
+    }
+
+    .responsive-container-block.leftSide {
+        width: 100%;
+    }
+}
+
+@mixin width-settings($size, $num-columns) {
+
+    .wk-desk-#{$size},
+    .wk-ipadp-#{$size},
+    .wk-tab-#{$size},
+    .wk-mobile-#{$size} {
+        width: math.div(100%, $num-columns) * $size;
+    }
+}
+
+@include width-settings(1, 12);
+@include width-settings(2, 12);
+@include width-settings(3, 12);
+@include width-settings(4, 12);
+@include width-settings(5, 12);
+@include width-settings(6, 12);
+@include width-settings(7, 12);
+@include width-settings(8, 12);
+@include width-settings(9, 12);
+@include width-settings(10, 12);
+@include width-settings(11, 12);
+@include width-settings(12, 12);
